@@ -1,14 +1,14 @@
 # Website Docx Generator in Python with Flask
 
-This project generates a docx with the data that an user entered into a html form !
+This project generates a docx with the data that an user entered into an html form !
 
 ## Getting Started
 
-To making this site up you need to install some libraries which are essential to the website and the generator ! 
+To make this site up you need to install some libraries which are essential to the website and the generator ! 
 
 ### Prerequisites
 
-You need to install Pip3 to install this libraries : 
+You need to install Pip3 to install these libraries : 
 In Windows :
 ```
 pip install flask
@@ -24,7 +24,7 @@ $ pip3 install wikipedia
 
 ## How modify it
 
-It's a specific app so you need to understand how the website works for using it to your own usage !
+It's a specific app so you need to understand how the website works for using it for your own usage !
 
 ### Template and form
 
@@ -40,10 +40,10 @@ The main page (and the only one) is in templates/index.html, the design is based
 
 ### Flask and docx generator
 
-The script in python open a docx document which is in templates-docx/ folder. 
-In this specific project it's a 2 or 3 columns table which is fill with the data that the user entered in.
+The script in python opens a docx document which is in templates-docx/ folder. 
+In this specific project, it's a 2 or 3 column table which is filled with the data that the user entered in.
 
-So first the script get what the user put into the form and we put it into variables :
+So first the script gets what the user put into the form and we put it into variables :
 
 ```python
 @app.route('/', methods=['POST']) # When the user click to the "submit" button
@@ -68,7 +68,7 @@ def my_form_post():
     III3 = request.form['III3']
 ```
 
-Then they is this really useful function which is delete_paragraph :
+Then they are this really useful function which is delete_paragraph :
 
 When we created tables to the docx template (manually) it also created an empty paragraph
 and when we add text into the docx file using python-docx library the empty first paragraph is still there and
@@ -89,7 +89,7 @@ getTitle = document.tables[0]
         delete_paragraph(getTitle.rows[0].cells[0].paragraphs[-1])
         getTitle.rows[0].cells[0].add_paragraph(titre, style="GrandTitre")
 ```
-The style named "GrandTitre" was already created into the template file, if you want to put your own style you can do it
+The style named "GrandTitre" was already created in the template file, if you want to put your own style you can do it
 directly into the docx template file.
 
 ## Test it !
@@ -98,7 +98,7 @@ You can test the website in this URL : [Docx Generator](https://veksor.pythonany
 
 ## Built With
 
-* [Flask](http://flask.pocoo.org/) - The light python web framework that make this website that simple and that powerful
+* [Flask](http://flask.pocoo.org/) - The light python web framework that makes this website that simple and that powerful
 * [python-docx](https://python-docx.readthedocs.io/en/latest/) - Python libray that can create, modify and generate docx file easily
 * [Wikipedia python library](https://pypi.org/project/wikipedia/) - Used to research the biography of writers
 * [Contact Form v5](https://github.com/lululinda/weapp/tree/master/Lista%20de%20asistencia/ContactFrom_v5%202) - Used to create the Html template file
