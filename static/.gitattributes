@@ -13,6 +13,8 @@
 
 #
 # Exclude files from exporting
+*.css
+*.html
 #
 
 .gitattributes  export-ignore
