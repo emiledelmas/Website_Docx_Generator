@@ -17,9 +17,9 @@ pip install wikipedia
 ```
 In Linux :
 ```
-pip3 install flask
-pip3 install python-docx
-pip3 install wikipedia
+$ pip3 install flask
+$ pip3 install python-docx
+$ pip3 install wikipedia
 ```
 
 ## How modify it
@@ -33,9 +33,9 @@ The main page (and the only one) is in templates/index.html, the design is based
 
 ```html
 <div class="wrap-input100 bg1 rs1-input100">
-					<span class="label-input100">Problématique</span>
-					<input class="input100" type="text" name="problematique" placeholder="Entrer la problématique">
-				</div>
+<span class="label-input100">Problématique</span>
+<input class="input100" type="text" name="problematique" placeholder="Entrer la problématique">
+</div>
 ```
 
 ### Flask and docx generator
