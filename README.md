@@ -23,7 +23,7 @@ $ pip3 install python-docx
 $ pip3 install wikipedia
 ```
 
-## How modify it
+## How to modify it
 
 It's a specific app so you need to understand how the website works for using it for your own usage !
 
