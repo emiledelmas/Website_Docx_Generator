@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Generateur de fiche</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename="images/icons/icons.ico") }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="fonts/font-awesome-4.7.0/css/font-awesome.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="fonts/iconic/css/material-design-iconic-font.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/animate/animate.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/css-hamburgers/hamburgers.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/animsition/css/animsition.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/select2/select2.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/daterangepicker/daterangepicker.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="vendor/noui/nouislider.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/util.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/main.css") }}">
+<!--===============================================================================================-->
+</head>
+<body onload="show()">
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form method="POST" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Génerateur de fiche
+				</span>
+
+				<div class="wrap-input100 validate-input bg1" data-validate="Entrer le nom">
+					<span class="label-input100">Nom de l'oeuvre *</span>
+					<input class="input100" type="text" name="titre" placeholder="Entrer le nom">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Entrer le nom de l'auteur">
+					<span class="label-input100">Auteur *</span>
+					<input class="input100" type="text" name="auteur" placeholder="Entrer le nom de l'auteur ">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Numéro</span>
+					<input class="input100" type="text" name="number" placeholder="Entrer le numéro">
+				</div>
+				<div class="wrap-input100 bg1 rs1-input100">
+					<span class="label-input100">Problématique</span>
+					<input class="input100" type="text" name="problematique" placeholder="Entrer la problématique">
+				</div>
+				
+				<span class="contact100-form-title" style="font-size:250%">
+					Plan
+				</span>
+				<p style="text-align: center;"> Attention : Ne pas rentrer le numéro des parties (ex: I. ou 1.) et s'il n'y a pas de III, ne pas compléter la case correspondante !<p>
+				<br><br>
+                <div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Nombre de grandes parties *</span>
+					<div>
+						<select onchange="show()" class="js-select2" name="nbrePartie">
+							<option>2</option>
+							<option>3</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 bg1 rs1-input50">
+					<span class="label-input50">Titre du I</span>
+					<input class="input50" type="text" name="I" placeholder="Entrer le titre du I">
+				</div>
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du I. 1</span>
+					<input class="input40" type="text" name="I1" placeholder="Entrer le titre du I. 1">
+				</div>
+<div class="wrap-input30 rs1-input40"></div>
+<!--
+            <div class="wrap-input20 rs1-input40"><p style="font-size: 150%">• </p></div>
+                <div class="wrap-input70 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI11" placeholder="Sous Point 1">
+				</div>
+                <div class="wrap-input10 rs1-input40"><p style="font-size: 150%; text-align: right">&#8618&nbsp;&nbsp;</p></div>
+                <div class="wrap-input35 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI11" placeholder="Sous-Sous Point 1">
+				</div>
+                 <div class="wrap-input10 rs1-input40"><p style="font-size: 150%; text-align: right">&#8618&nbsp;&nbsp;</p></div>
+                <div class="wrap-input35 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI12" placeholder="Sous-Sous Point 2">
+				</div>
+                 <div class="wrap-input10 rs1-input40"><p style="font-size: 150%; text-align: right">&#8618&nbsp;&nbsp;</p></div>
+                <div class="wrap-input35 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI13" placeholder="Sous-Sous Point 3">
+				</div>
+
+                 <div class="wrap-input10 rs1-input40"><p style="font-size: 150%; text-align: right">&#8618&nbsp;&nbsp;</p></div>
+                <div class="wrap-input35 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI14" placeholder="Sous-Sous Point 4">
+				</div>
+                <div class="wrap-input20 rs1-input40"><p style="font-size: 150%">• </p></div>
+                 <div class="wrap-input70 bg1 rs1-input40">
+					<span class="label-input100"></span>
+					<input class="input30" type="text" name="sI12" placeholder="Sous Point 2">
+				</div>
+                <div class="wrap-input100 bg1 rs1-input40"><button style="background-color: #f7f7f7; width: 100%;height: 40px; text-align: center">+</button></div>
+
+
+
+
+
+-->
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du I. 2</span>
+					<input class="input40" type="text" name="I2" placeholder="Entrer le titre du I. 2">
+				</div>
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du I. 3</span>
+					<input class="input40" type="text" name="I3" placeholder="Entrer le titre du I. 3">
+				</div>
+				
+				
+				<div class="wrap-input100 bg1 rs1-input50">
+					<span class="label-input50">Titre du II</span>
+					<input class="input50" type="text" name="II" placeholder="Entrer le titre du II">
+				</div>
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du II. 1</span>
+					<input class="input40" type="text" name="II1" placeholder="Entrer le titre du II. 1">
+				</div>
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du II. 2</span>
+					<input class="input40" type="text" name="II2" placeholder="Entrer le titre du II. 2">
+				</div>
+				<div class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du II. 3</span>
+					<input class="input40" type="text" name="II3" placeholder="Entrer le titre du II. 3">
+				</div>
+				
+				
+                <div id="III" style="width:100%">
+				<div id="III" class="wrap-input100 bg1 rs1-input50">
+					<span class="label-input50">Titre du III</span>
+					<input class="input50" type="text" name="III" placeholder="Entrer le titre du III">
+				</div>
+				<div id="III" class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du III. 1</span>
+					<input class="input40" type="text" name="III1" placeholder="Entrer le titre du III. 1">
+				</div>
+				<div id="III" class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du III. 2</span>
+					<input class="input40" type="text" name="III2" placeholder="Entrer le titre du III. 2">
+				</div>
+				<div id="III" class="wrap-input50 bg1 rs1-input40">
+					<span class="label-input40">Titre du III. 3</span>
+					<input class="input40" type="text" name="III3" placeholder="Entrer le titre du III. 3">
+				</div>
+
+</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Générer
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+
+			</form>
+            <br>
+            <p style="text-align: center;">Le format de sortie étant .docx, propriété de Microsoft, il peut comporter des incompatibilités avec d'autres versions et logiciels.<p>
+                <p style="text-align: center;">&#8618 En cas de problèmes merci de vous rendre ici : <a style="color:#2A5D94;" href="https://support.office.com/fr-fr/word">Aide sur Word</a><p>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/jquery/jquery-3.2.1.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/animsition/js/animsition.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/bootstrap/js/popper.js") }}"></script>
+	<script src="{{ url_for('static', filename="vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/select2/select2.min.js") }}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		});
+        function show(){
+           let x =  document.getElementsByName("nbrePartie")[0].value;
+           console.log(x);
+           if (x === "2"){
+                document.getElementById("III").style.display = "none";
+           }
+           else{
+               document.getElementById("III").style.display = "inline";
+           }
+        }
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/daterangepicker/moment.min.js") }}"></script>
+	<script src="{{ url_for('static', filename="vendor/daterangepicker/daterangepicker.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/countdowntime/countdowntime.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="vendor/noui/nouislider.min.js") }}"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename="js/main.js") }}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
