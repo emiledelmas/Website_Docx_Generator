@@ -13,8 +13,8 @@
 
 #
 # Exclude files from exporting
-*.css
-*.html
+*.css linguist-language=python
+*.html linguist-language=python
 #
 
 .gitattributes  export-ignore
