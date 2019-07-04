@@ -31,7 +31,7 @@ It's a specific app so you need to understand how the website works for using it
 The main page (and the only one) is in templates/index.html, the design is based on this template :
 [Contact Form v5](https://github.com/lululinda/weapp/tree/master/Lista%20de%20asistencia/ContactFrom_v5%202)
 
-```
+```html
 <div class="wrap-input100 bg1 rs1-input100">
 					<span class="label-input100">Problématique</span>
 					<input class="input100" type="text" name="problematique" placeholder="Entrer la problématique">
@@ -45,7 +45,7 @@ In this specific project it's a 2 or 3 columns table which is fill with the data
 
 So first the script get what the user put into the form and we put it into variables :
 
-```
+```python
 @app.route('/', methods=['POST']) # When the user click to the "submit" button
 def my_form_post():
 # First we put into variables all the data that the user entered
@@ -75,7 +75,7 @@ and when we add text into the docx file using python-docx library the empty firs
 the text that the user entered in is not on the first line but in the second so first you have to delete empty paragraph
 using this function.
 
-```
+```python
 def delete_paragraph(paragraph):
     p = paragraph._element
     p.getparent().remove(p)
@@ -84,7 +84,7 @@ def delete_paragraph(paragraph):
 
 Then we can add paragraph to our docx using that function and python-docx library
 
-```
+```python
 getTitle = document.tables[0]
         delete_paragraph(getTitle.rows[0].cells[0].paragraphs[-1])
         getTitle.rows[0].cells[0].add_paragraph(titre, style="GrandTitre")
