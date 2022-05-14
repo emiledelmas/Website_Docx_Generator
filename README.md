@@ -95,7 +95,7 @@ directly into the docx template file.
 
 ## Test it !
 
-You can test the website in this URL : [Docx Generator](https://veksor.pythonanywhere.com/)
+You can test the website in this URL : [Docx Generator](http://fichefr.tretis.fr/)
 
 ## Built With
 
